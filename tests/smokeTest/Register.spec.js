@@ -36,19 +36,19 @@ test("RegisterPage_chech",async ({page})=>{
 
                 page.getByText('Passwords do not match')
                 .waitFor({state:'visible',timeout:2000})
-                .then(()=>'failed')
+                .then(()=>'Passwords do not match')
                 .catch(()=>'null')
 
             ])
 
             if(result=='success'){
                 console.log('Regsitration Success');
-            }else if(result=='failed'){
-                console.log("failed");
+            }else if(result=='Passwords do not match'){
+                console.log("Passwords do not match");
             }else if(result=="User already exists with this email"){
                 console.log("User already exists with this email")
             }else{
-                console.log("Skipped")
+                console.log("Received a Null Value")
             }
         }
 

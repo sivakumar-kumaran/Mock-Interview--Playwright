@@ -1,4 +1,5 @@
-const{expect}=require('@playwright/test')
+const{expect}=require('@playwright/test');
+const { TIMEOUT } = require('dns');
 
 class Loginpage{
     constructor (page){
@@ -11,8 +12,6 @@ class Loginpage{
     }
 
     async Login(email,password){
-         
-        await expect(this.startButton).toBeVisible({ timeout: 5000 });
         await this.startButton.click();
         await this.userName.fill(email);
         await this.password.fill(password);

@@ -4,9 +4,6 @@ const {Login, Loginpage}=require('../../Pages/Loginpage')
 
 
 test("InterviewTest",async ({page})=>{
-
-
-
    await page.goto("https://mockwithsiva.vercel.app/");
    
    const login=new Loginpage(page);
