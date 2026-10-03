@@ -1,6 +1,9 @@
+
 const {test,expect}=require("@playwright/test");
 
-const {Login, Loginpage}=require('../../Pages/Loginpage')
+const {Login, Loginpage}=require('../../Pages/Loginpage');
+
+const{Informtaion} =require("./TestData.js")
 
 
 test("InterviewTest",async ({page})=>{
@@ -8,8 +11,9 @@ test("InterviewTest",async ({page})=>{
    
    const login=new Loginpage(page);
 
+   console.log(Informtaion.email);
 
-   await login.Login('sivakumarirulaye@gmail.com',"123456");
+   await login.Login(Informtaion.email,Informtaion.password);
 
    await expect(page).toHaveURL("https://mockwithsiva.vercel.app/dashboard");
    await expect(page.getByText("Dashboard")).toBeVisible();

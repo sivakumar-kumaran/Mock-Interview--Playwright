@@ -7,3 +7,5 @@ node_modules/
 /playwright/.auth/
 test-media/*.mp4
 test-media/*.mp3
+
+tests/smokeTest/TestData.js
