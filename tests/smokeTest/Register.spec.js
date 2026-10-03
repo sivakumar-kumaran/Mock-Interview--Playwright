@@ -25,17 +25,17 @@ test("RegisterPage_chech",async ({page})=>{
             if(checked){
 
             const result=await Promise.race([
-                page.waitForURL('**/dashboard',{timeout:2000})
+                page.waitForURL('**/dashboard')
                 .then(()=>"success")
                 .catch(()=>null),
 
                 page.getByText('User already exists with this email')
-                .waitFor({state:'visible' , timeout:2000})
+                .waitFor({state:'visible'})
                 .then(()=>'User already exists with this email')
                 .catch(()=>null),
 
                 page.getByText('Passwords do not match')
-                .waitFor({state:'visible',timeout:2000})
+                .waitFor({state:'visible'})
                 .then(()=>'Passwords do not match')
                 .catch(()=>'null')
 
@@ -43,11 +43,14 @@ test("RegisterPage_chech",async ({page})=>{
 
             if(result=='success'){
                 console.log('Regsitration Success');
-            }else if(result=='Passwords do not match'){
+            }
+            else if(result=='Passwords do not match'){
                 console.log("Passwords do not match");
-            }else if(result=="User already exists with this email"){
+            }
+            else if(result=="User already exists with this email"){
                 console.log("User already exists with this email")
-            }else{
+            }
+            else{
                 console.log("Received a Null Value")
             }
         }

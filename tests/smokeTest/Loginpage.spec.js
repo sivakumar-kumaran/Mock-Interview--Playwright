@@ -17,8 +17,6 @@ const userData=path.join(__dirname,"../../TestData/TestingExcel.xlsx")
        const workbook=XLSX.readFile(userData);
        const worksheet=workbook.Sheets['LoginData'];
        const UserExcelData=XLSX.utils.sheet_to_json(worksheet);
-
-       console.log(UserExcelData.length)
        
        for(const temp of UserExcelData){
 
@@ -29,11 +27,11 @@ const userData=path.join(__dirname,"../../TestData/TestingExcel.xlsx")
                 await LoginPage.Login(String(temp.Email),String(temp.Password));
 
                 const result=await Promise.race([
-                    expect(page).toHaveURL("https://mockwithsiva.vercel.app/dashboard",{timeout:3000})
+                    expect(page).toHaveURL("https://mockwithsiva.vercel.app/dashboard")
                     .then(()=>'success')
                     .catch(()=>null),
 
-                    expect(page.getByText('Invalid credentials')).toBeVisible({timeout:3000})
+                    expect(page.getByText('Invalid credentials')).toBeVisible()
                     .then(()=>'failed')
                     .catch(()=>null)
                 ]);
