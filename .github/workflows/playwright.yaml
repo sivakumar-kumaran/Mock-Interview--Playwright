@@ -25,5 +25,7 @@ jobs:
         - run: npm ci
         - run: npx playwright install --with-deps chromium
         - run: npx playwright test tests/smokeTest/Loginpage.spec.js --project=chromium
+        - run: npx playwtight test tests/smokeTest/Register.spec.js --project=chromium 
+
 
  
