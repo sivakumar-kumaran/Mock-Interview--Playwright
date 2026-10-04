@@ -11,8 +11,6 @@ test("InterviewTest",async ({page})=>{
    
    const login=new Loginpage(page);
 
-   console.log(Informtaion.email);
-
    await login.Login(Informtaion.email,Informtaion.password);
 
    await expect(page).toHaveURL("https://mockwithsiva.vercel.app/dashboard");
