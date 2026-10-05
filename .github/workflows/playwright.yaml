@@ -40,5 +40,5 @@ jobs:
           run: npx playwright test tests/smokeTest/Register.spec.js --project=chromium 
 
         - if: github.event_name == 'schedule' && github.event.schedule == '50 23 * * *'
-          run: npx playwright test tests/smokeTest/InterviweTest.spec.js --project=chromium
+          run: npx playwright test tests/smokeTest/InterviewTest.spec.js --project=chromium
 
