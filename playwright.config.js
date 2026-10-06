@@ -97,6 +97,7 @@ module.exports = defineConfig({
     launchOptions: {
       args: [
         "--use-fake-ui-for-media-stream",
+        "--use-fake-device-for-media-stream",
 
         // Fake camera
         `--use-file-for-fake-video-capture=${path.resolve(
