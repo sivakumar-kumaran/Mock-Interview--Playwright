@@ -44,6 +44,7 @@ const userData=path.join(__dirname,"../../TestData/TestingExcel.xlsx")
                 else{
                     console.log("Login failed");
                 }
+                
                 await page.evaluate(() => {
                     localStorage.clear();
                     sessionStorage.clear();
