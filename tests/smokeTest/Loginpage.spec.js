@@ -11,13 +11,13 @@ const userData=path.join(__dirname,"../../TestData/TestingExcel.xlsx")
    test("LoginpageTest",async ({page,context})=>{
 
     // object creation here for a class
-       const LoginPage=new Loginpage(page);
+       const LoginPage=new Loginpage(page); //pom
 
-
+    // excel
        const workbook=XLSX.readFile(userData);
        const worksheet=workbook.Sheets['LoginData'];
-       const UserExcelData=XLSX.utils.sheet_to_json(worksheet);
-       
+       const UserExcelData=XLSX.utils.sheet_to_json(worksheet); //
+        
        for(const temp of UserExcelData){
 
                 await page.goto("https://mockwithsiva.vercel.app/")
@@ -25,6 +25,7 @@ const userData=path.join(__dirname,"../../TestData/TestingExcel.xlsx")
                 await expect(page).toHaveTitle("Mock Interview Platform - AI-Powered Interview Simulation");
 
                 await LoginPage.Login(String(temp.Email),String(temp.Password));
+                
 
                 const result=await Promise.race([
                     expect(page).toHaveURL("https://mockwithsiva.vercel.app/dashboard")

@@ -12,6 +12,9 @@ class Loginpage{
     }
 
     async Login(email,password){
+
+        await expect(this.startButton).toBeVisible();
+        await expect(this.startButton).toBeEnabled();
         await this.startButton.click();
         await this.userName.fill(email);
         await this.password.fill(password);

@@ -19,6 +19,9 @@ on:
    - cron: '50 23 * * *'
      timezone: 'Asia/Kolkata'
 
+   - cron: '55 23 * * *'
+     timezone: 'Asia/Kolkata'
+
 jobs:
   smoke-testing:
       runs-on: ubuntu-latest
@@ -41,4 +44,7 @@ jobs:
 
         - if: github.event_name == 'schedule' && github.event.schedule == '50 23 * * *'
           run: npx playwright test tests/smokeTest/InterviewTest.spec.js --project=chromium
+
+        - if: github.event_name == 'schedule' && github.event.schedule == '55 23 * * *'
+          run: npx playwright test tests/PageTests/Praticepage.spec.js --project=chromium
 
