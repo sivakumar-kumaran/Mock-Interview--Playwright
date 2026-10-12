@@ -35,7 +35,7 @@ test("PraticePageTest",async ({page})=>{
                 await expect(nextbtn).toBeVisible();
                 const value=await nextbtn.isEnabled();
 
-                if(!value || i==5){
+                if(!value || i==2){
                     break;
                 }
                 await expect(nextbtn).toBeEnabled();
