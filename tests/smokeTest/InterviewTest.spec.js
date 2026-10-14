@@ -241,4 +241,40 @@ test("InterviewTest", async ({ page }) => {
   console.log(
     "End-to-end Interview platform tested successfully!"
   );
+
+  const dashboard =await page.getByRole('link',{name:'Dashboard',exact:true});
+  await expect(dashboard).toBeEnabled();
+  dashboard.click();
+
+  await expect(page).toHaveURL('https://mockwithsiva.vercel.app/dashboard');
+
+
+  const deletBtn=await page.getByRole('link',{name:'View History & Logs'});
+  await expect(deletBtn).toBeEnabled();
+  await deletBtn.click();
+
+  await expect(page).toHaveURL('https://mockwithsiva.vercel.app/history');
+
+  const Delete_Interview_Record=await page.getByRole('button',{name:'Delete Interview Record',exact:true}).first();
+  await expect(Delete_Interview_Record).toBeVisible();
+  
+  await page.once('dialog', async dialog => {
+    console.log('Alert message:', dialog.message());
+    await dialog.accept();
+  });
+  
+  
+  await Delete_Interview_Record.click();
+
+  const temp=await page.getByText("Interview record deleted successfully.",{timeout:8000});
+
+
+  await expect(temp).toBeVisible();
+
+ 
+  if(temp)
+   console.log("Interview test completed and deleted successfully..!,Good Siva")
+
+  else
+   console.log("Not checked /not passesd")
 });
